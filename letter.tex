@@ -1,0 +1,143 @@
+\usemodule[fonts-system]
+
+% Font features
+\definefontfeature
+  [zapfino]
+  [default]
+  [mode=node,
+   calt=yes,
+   clig=yes,
+   liga=yes,
+   dlig=yes,
+   tlig=yes,
+   rlig=yes,
+   kern=yes]
+
+% Font definitions
+\definefont[mainface] [name:zapfinoextraltthree at 24pt]
+\definefont[mainfacelist] [name:zapfinoextraltthree at 18pt]
+\definefont[ZapfinoLigatures]   [name:zapfinoextraltligatures at 24pt]
+\definefont[ZapfinoSwashes]     [name:zapfinoextraltalternate at 24pt]
+\definefont[ZapfinoOrnaments]   [name:zapfinoextraltornaments at 24pt]
+\definefont[ZapfinoCaps]        [name:zapfinoextraltsmallcaps at 24pt]
+\definefont[ZapfinoOne]         [name:zapfinoextraltone at 24pt]
+\definefont[ZapfinoForte]       [name:zapfinoforteltpro at 24pt]
+
+% Glyph helpers
+\def\SigGlyphLig#1{\definedfont[name:zapfinoextraltligatures at 60pt]{#1}}
+\def\SigGlyphAlt#1{\definedfont[name:zapfinoextraltalternate at 60pt]{#1}}
+\def\SigGlyphFour#1{\definedfont[name:zapfinoextraltfour at 60pt]{#1}}
+\def\SigGlyphThree#1{\definedfont[name:zapfinoextraltthree at 60pt]{#1}}
+\def\SigGlyphTwo#1{\definedfont[name:zapfinoextralttwo at 60pt]{#1}}
+\def\SigGlyphSpace#1{\definedfont[name:zapfinoextralttwo at 24pt]{#1}}
+
+% Typesetting
+\setupspacing[packed]
+\setupbodyfont[mainface,24pt]
+\setupinterlinespace[line=36pt]
+\setupindenting[no]
+\setupindenting[next]
+
+% Page 1: no header
+\setupheader[state=stop]
+\setupfooter[state=stop]
+\setuppagenumbering[location=] % no auto page numbers
+
+\starttext
+
+%--------------------------------------
+% PAGE 1 (no header)
+%--------------------------------------
+% 1. Enable header for page 1
+\setupheader[state=high]
+\setupfooter[state=stop]
+\setupheadertexts
+  [\mainface First-Page Header] % even left
+  []                            % even center
+[f]                            % odd right
+  []                            % odd center
+\setuppagenumbering[location=header]
+\page
+\startalignment[flushright]
+{\mainface First Hill, Seattle, April 2, 2025}
+\stopalignment
+\startalignment[flushleft]
+\ZapfinoForte{
+To My Friend {\ZapfinoLigatures O} Stead{\ZapfinoSwashes y} Hand {\ZapfinoSwashes \%} Uncommon Patience,
+}
+\setupindenting[yes,small]
+
+{\mainface 
+
+Permit me to address you, not as one supplicant to his judge, but as a debtor to the gentleman who rescued him from the wretched calculus of bail and bureaucratic punishment. 
+
+I write to accompany a bank-issued check, soon to arrive at your lawful domicile, and tendered in the precise sum of \$7,066.04, which, by all reckonings honest and compound, shall constitute the full satisfaction of the debt I owe you.
+
+That I owe you is beyond dispute.
+
+The account, as I have tallied it in recent days, is no mere ledger of figures, but a testament to the civic virtue and private compassion that once formed the backbone of Enlightened society.
+}
+\stopalignment
+
+%--------------------------------------
+% PAGE 2 (enable header)
+%--------------------------------------
+
+
+\setupheadertexts[\mainface Page \pagenumber][][\mainface Page \pagenumber][]
+\setuppagenumbering[location=] 
+\page
+
+\begingroup
+\setupindenting[yes,small]
+{\mainface If you will permit a recapitulation, I submit the following for your dignified reflection and eternal amusement:}
+
+\ZapfinoForte{\$3,825 - Bail Premium: }{\mainface Rendered to a bondsman whose profession consists of calculating the cost of liberty itself.}
+
+\ZapfinoForte{\$1,750 - Bond for GPS Monitor: }{\mainface A device most fantastical; an invisible shackle that communes with mechanical celestial satellites to report my every footstep.}
+
+\ZapfinoForte{\$352.49 - Setup Fee: }{\mainface Paid to my virtual jailer who affixed the device to my person.}
+
+\ZapfinoForte{\$150 - Weekend Premium: }{\mainface Levied to the same poor soul for the indignity of laboring on a Saturday.}
+
+\ZapfinoForte{\$200 - Walking-Around Coin: }{\mainface That I might not perish of hunger or indignity on my release.}
+
+\endgroup
+
+%--------------------------------------
+% PAGE 3 (header continues)
+%--------------------------------------
+\page
+\setupindenting[yes,small]
+
+{\mainface In addition to the above, I cannot in good conscience fail to acknowledge the additional burden of interest that has accrued on this sum since the date of my release from the bonds of incarceration. I have taken the liberty of addressing this issue, as follows:
+
+At the assumption of these obligations in July of the Year 2024\,, you acknowledged to me that you were not able to cover these costs from your liquid resources, and that you had to borrow from your credit card to cover the costs. I am not privy to the particulars of your financial arrangements, but I can only assume that the costs above were at least initially subject to the unrelenting erosion of credit-card usury. In a best case scenario, a gentleman of your character and impeccable credit worthiness would have incurred such interest at a rate of 16 per cent per annum, compounded daily; an additional }\ZapfinoForte{\$788.55 }{\mainface in interest over the past nine months. 
+
+Before you protest the inclusion of such interest in the amount owed to you based on the likely event that you have responsibly paid down the original debt, you and your family have nonetheless been subjected to a similar cost of opportunities lost over these past nine months. It is thus the least I can do to add the }\ZapfinoForte{\$788.55 }{\mainface in interest, bringing the full sum to }\ZapfinoForte{\$7,066.04.} 
+
+{\mainface I have instructed my banking establishment - an enterprise governed less by coin than by whisperings in the ether - to dispatch the aforementioned check to your lawful domicile. If received, deposited, and cleared, I shall regard my debt as extinguished. Should there be dispute or discord, I shall entertain your remonstrance with humility and due regard. }
+
+%--------------------------------------
+% PAGE 4
+%--------------------------------------
+
+{\mainface More than any numerical reckoning, however, I record this debt 
+as a moral testament — a gesture of fraternal mercy amidst the cold arithmetic 
+of the modern age.}
+
+\startalignment[flushright]
+{\mainface With enduring esteem and filial gratitude,\\
+I remain, Sir, your most humble and obedient servan{\ZapfinoSwashes{l}},}
+\stopalignment
+
+\startalignment[center]
+\definedfont[name:zapfinoextraltligatures at 54pt]{D}%
+\definedfont[name:zapfinoextraltfour at 54pt]{Joseph Anthony Mienko}
+\definedfont[name:zapfinoextraltornaments at 84pt]{œ}
+\startalignment[flushright]
+{\mainface This }\ZapfinoLigatures{2}{\mainface Day of April, 2025}
+\stopalignment
+\stopalignment
+
+\stoptext
